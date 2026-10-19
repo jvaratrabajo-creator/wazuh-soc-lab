@@ -58,6 +58,20 @@ La infraestructura está compuesta por un servidor principal con Ubuntu Server 2
 
 **Vulnerability Detection:** funcionalidad utilizada para identificar vulnerabilidades conocidas en los sistemas operativos y paquetes de software monitoreados.
 
+
+
+## Technical Documentation / Documentación técnica
+
+Esta sección contiene los procedimientos técnicos utilizados durante la implementación del laboratorio SOC con Wazuh. Cada documento incluye los pasos de configuración, comandos y referencias correspondientes a las herramientas integradas.
+
+| N.º | Procedimiento | Descripción |
+|---|---|---|
+| 01 | [Instalación de Wazuh Server](docs/01-instalacion-wazuh.md) | Instalación All-in-One, administración LVM y configuración documentada de Vulnerability Detection. |
+| 02 | [Suricata IDS + Wazuh Agent](docs/02-suricata-windows11.md) | Implementación de Suricata en Windows 11, recopilación de eventos JSON y monitoreo mediante Wazuh. |
+| 03 | [FIM + VirusTotal](docs/03-fim-virustotal.md) | Monitoreo de integridad de archivos, integración mediante API y pruebas de funcionamiento. |
+| 04 | [Email Alerts — Postfix + Gmail SMTP](docs/04-email-alerts.md) | Configuración de notificaciones automáticas de seguridad mediante correo electrónico. |
+  
+
 **Email Alerts:** integración de Wazuh con Postfix y Gmail SMTP para enviar notificaciones automáticas sobre eventos de seguridad.
 
 Los procedimientos de instalación, configuración y validación de cada integración se documentarán en archivos técnicos independientes dentro del repositorio.
