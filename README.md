@@ -10,15 +10,15 @@
 Diseño e implementación de un laboratorio de monitoreo de ciberseguridad utilizando Wazuh SIEM/XDR sobre Ubuntu Server 24.04, con endpoints Windows y Linux, integración de Suricata IDS, monitoreo de integridad de archivos (FIM), enriquecimiento de eventos mediante VirusTotal, detección de vulnerabilidades y alertas automáticas por correo electrónico mediante Postfix y Gmail SMTP.
   
 
-## Project Objectives / Objetivos del proyecto
+## Objetivos del proyecto
 
-### General Objective / Objetivo general
+### Objetivo general
 
 Diseñar, implementar y validar un laboratorio SOC basado en Wazuh SIEM/XDR, orientado a centralizar eventos de seguridad de sistemas Windows y Linux, integrar herramientas de detección y enriquecer la información recopilada para facilitar el monitoreo, análisis y gestión de amenazas.
 
-### Specific Objectives / Objetivos específicos
+### Objetivos específicos
 
-**Español**
+
 
 1. Implementar Wazuh sobre Ubuntu Server 24.04 para centralizar la recopilación y análisis de eventos.
 2. Desplegar agentes Wazuh en Windows 11, Windows 10, Windows Server 2022 y Ubuntu Desktop.
@@ -28,7 +28,7 @@ Diseñar, implementar y validar un laboratorio SOC basado en Wazuh SIEM/XDR, ori
   
 
 
-## Lab Architecture / Arquitectura del laboratorio
+## Arquitectura del laboratorio
 
 El laboratorio SOC utiliza una arquitectura centralizada para la recopilación, monitoreo y análisis de eventos de seguridad provenientes de sistemas Windows y Linux, mediante Wazuh SIEM/XDR.
 
@@ -48,7 +48,7 @@ La infraestructura está compuesta por un servidor principal con Ubuntu Server 2
 | Win_Server2022 | Windows Server 2022 | Wazuh Agent y FIM |
 | Server_Linux | Ubuntu Desktop | Wazuh Agent y FIM |
 
-### Security Integrations / Integraciones de seguridad
+### Integraciones de seguridad
 
 **Suricata IDS:** implementado sobre Windows 11 para inspeccionar tráfico de red y generar eventos de seguridad en formato JSON mediante `eve.json`, posteriormente recopilados por Wazuh Agent y enviados al servidor central.
 
@@ -61,7 +61,7 @@ La infraestructura está compuesta por un servidor principal con Ubuntu Server 2
 **Email Alerts:** integración de Wazuh con Postfix y Gmail SMTP para enviar notificaciones automáticas sobre eventos de seguridad.
 
 
-## Technical Documentation / Documentación técnica
+## Documentación técnica
 
 Esta sección contiene los procedimientos técnicos utilizados durante la implementación del laboratorio SOC con Wazuh. Cada documento incluye los pasos de configuración, comandos y referencias correspondientes a las herramientas integradas.
 
@@ -76,8 +76,7 @@ Esta sección contiene los procedimientos técnicos utilizados durante la implem
 Los procedimientos de instalación, configuración y validación de las integraciones implementadas se encuentran documentados en archivos técnicos independientes, disponibles en la sección de documentación técnica de este repositorio.
   
 
-
-## Security Evidence / Evidencias de seguridad
+## Evidencias de implementacion
 
 El laboratorio cuenta con nueve evidencias visuales que documentan el funcionamiento de Wazuh, el monitoreo de endpoints Windows/Linux y las integraciones de Suricata IDS, FIM, VirusTotal, Email Alerts y Vulnerability Detection.
 
