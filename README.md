@@ -26,3 +26,39 @@ Diseñar, implementar y validar un laboratorio SOC basado en Wazuh SIEM/XDR, ori
 4. Configurar FIM, VirusTotal y Vulnerability Detection para monitorear cambios en archivos, enriquecer alertas e identificar vulnerabilidades.
 5. Implementar notificaciones automáticas mediante Postfix y Gmail SMTP para comunicar eventos de seguridad.
   
+
+
+## Lab Architecture / Arquitectura del laboratorio
+
+El laboratorio SOC utiliza una arquitectura centralizada para la recopilación, monitoreo y análisis de eventos de seguridad provenientes de sistemas Windows y Linux, mediante Wazuh SIEM/XDR.
+
+La infraestructura está compuesta por un servidor principal con Ubuntu Server 24.04 y cuatro endpoints independientes monitoreados mediante Wazuh Agent v4.14.7.
+
+### Diagrama de arquitectura
+
+![Arquitectura del laboratorio SOC con Wazuh](wazuh-lab-architecture.png)
+
+### Componentes de infraestructura
+
+| Equipo | Sistema operativo | Función |
+|---|---|---|
+| Wazuh Server | Ubuntu Server 24.04 | Gestión y análisis centralizado de eventos de seguridad |
+| AgentW11 | Windows 11 | Wazuh Agent, Suricata IDS y FIM |
+| AgentW10 | Windows 10 | Wazuh Agent y FIM |
+| Win_Server2022 | Windows Server 2022 | Wazuh Agent y FIM |
+| Server_Linux | Ubuntu Desktop | Wazuh Agent y FIM |
+
+### Security Integrations / Integraciones de seguridad
+
+**Suricata IDS:** implementado sobre Windows 11 para inspeccionar tráfico de red y generar eventos de seguridad en formato JSON mediante `eve.json`, posteriormente recopilados por Wazuh Agent y enviados al servidor central.
+
+**File Integrity Monitoring (FIM):** habilitado en los endpoints monitoreados para identificar modificaciones, creaciones y eliminaciones de archivos en los directorios configurados.
+
+**VirusTotal:** integrado con Wazuh Manager mediante API para consultar la reputación de archivos y enriquecer las alertas FIM configuradas.
+
+**Vulnerability Detection:** funcionalidad utilizada para identificar vulnerabilidades conocidas en los sistemas operativos y paquetes de software monitoreados.
+
+**Email Alerts:** integración de Wazuh con Postfix y Gmail SMTP para enviar notificaciones automáticas sobre eventos de seguridad.
+
+Los procedimientos de instalación, configuración y validación de cada integración se documentarán en archivos técnicos independientes dentro del repositorio.
+  
