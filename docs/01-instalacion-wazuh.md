@@ -1,59 +1,91 @@
 
 # Instalación de Wazuh Server en Ubuntu Server 24.04
 
-Documentación del procedimiento realizado en el laboratorio Wazuh SOC Lab.
+## 1. Descripción
 
-En caso de tener que ampliar el volumen lógico de Ubuntu server, Luego de la instalacion:
+Implementación de Wazuh mediante el método oficial **Installation Assistant / Quickstart**, utilizando una arquitectura **All-in-One** sobre Ubuntu Server 24.04.
 
-1. Verificar espacio en disco
+Los componentes Wazuh Manager, Wazuh Indexer y Wazuh Dashboard se encuentran instalados en el mismo servidor.
 
-df -h /
+## 2. Instalación de Wazuh
 
-2. Ampliar el volumen lógico
-Ejecutar este comando para ampliar el volumen lógico a todo el espacio libre en Ubuntu Server 24.04.5:
+Se utilizó como referencia el procedimiento oficial de instalación rápida de Wazuh:
 
-sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
-
-3. Redimensionar el sistema de archivos EXT4
-Luego, amplíar el sistema de archivos que está montado en / para que aproveche el nuevo espacio del disco:
-
-sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
-
-4. Verificar que se haya ampliado correctamente
-
-df -h /
-
-///////////////// INSTALACIÓN WAZUH-MANAGER ////////////////////
-
-Documentación oficial:
 https://documentation.wazuh.com/current/quickstart.html
 
-///////////////// VULNERABILITY DETECTION ////////////////////
+> Nota: El archivo TXT original registra la referencia a la guía oficial, pero no incluye los comandos ejecutados durante la instalación inicial.
 
+## 3. Ampliación del volumen lógico de Ubuntu Server
 
-Por defecto, Wazuh NO escanea el propio servidor/manager (Ubuntu Server). 
-Para activarlo:
+Este procedimiento se documentó para el caso de necesitar ampliar el volumen lógico después de instalar Ubuntu Server.
 
-1. Editar /var/ossec/etc/internal_options.conf (ejecutando el siguiente comando)
+### Paso 1. Verificar el espacio en disco
 
-    sudo nano /var/ossec/etc/internal_options.conf
+```bash
+df -h /
+```
 
-2. Busca la línea en el editable:
-    
-    vulnerability-detection.disable_scan_manager=1
-    
-3. Cambia el valor a 0:
-    
-    `vulnerability-detection.disable_scan_manager=0
+### Paso 2. Ampliar el volumen lógico
 
-- ctrl+O para guardar y Ctrl+X para salir    
+```bash
+sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+```
 
-4. Reiniciar Wazuh-Manager
+Este comando amplía el volumen lógico utilizando el espacio libre disponible en el grupo de volúmenes.
 
+### Paso 3. Redimensionar el sistema de archivos EXT4
+
+```bash
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+```
+
+### Paso 4. Verificar la ampliación
+
+```bash
+df -h /
+```
+
+> Importante: Los comandos anteriores corresponden a la ruta LVM documentada en el laboratorio. Antes de reutilizarlos en otro sistema, se debe verificar el volumen lógico y el tipo de sistema de archivos.
+
+## 4. Vulnerability Detection — Configuración documentada
+
+El procedimiento original incluye los siguientes pasos relacionados con el análisis de vulnerabilidades del propio Wazuh Manager.
+
+### Paso 1. Editar el archivo de opciones internas
+
+```bash
+sudo nano /var/ossec/etc/internal_options.conf
+```
+
+### Paso 2. Localizar el parámetro documentado
+
+```ini
+vulnerability-detection.disable_scan_manager=1
+```
+
+### Paso 3. Modificar su valor
+
+```ini
+vulnerability-detection.disable_scan_manager=0
+```
+
+Guardar los cambios con `Ctrl+O` y salir con `Ctrl+X`.
+
+### Paso 4. Reiniciar Wazuh Manager
+
+```bash
 sudo systemctl restart wazuh-manager
+```
 
-5. Verificar el estado de Wazuh-Manager
+### Paso 5. Verificar el estado del servicio
 
+```bash
 sudo systemctl status wazuh-manager
+```
 
-  
+> Nota técnica: Esta configuración se conserva como parte del procedimiento original. Su compatibilidad y efecto concreto deben verificarse para la versión de Wazuh utilizada antes de recomendar su aplicación en otros entornos.
+
+## 5. Referencias
+
+- [Wazuh — Quickstart](https://documentation.wazuh.com/current/quickstart.html)
+ 
