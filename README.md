@@ -75,3 +75,13 @@ Esta sección contiene los procedimientos técnicos utilizados durante la implem
 
 Los procedimientos de instalación, configuración y validación de las integraciones implementadas se encuentran documentados en archivos técnicos independientes, disponibles en la sección de documentación técnica de este repositorio.
   
+
+
+## Security Evidence / Evidencias de seguridad
+
+El laboratorio cuenta con nueve evidencias visuales que documentan el funcionamiento de Wazuh, el monitoreo de endpoints Windows/Linux y las integraciones de Suricata IDS, FIM, VirusTotal, Email Alerts y Vulnerability Detection.
+
+Las capturas corresponden a pruebas realizadas en el entorno de laboratorio y permiten observar los resultados obtenidos durante la implementación.
+
+📂 **[Consultar las nueve evidencias del laboratorio](evidence/README.md)**
+  
