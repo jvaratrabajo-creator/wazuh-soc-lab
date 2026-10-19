@@ -58,6 +58,7 @@ La infraestructura está compuesta por un servidor principal con Ubuntu Server 2
 
 **Vulnerability Detection:** funcionalidad utilizada para identificar vulnerabilidades conocidas en los sistemas operativos y paquetes de software monitoreados.
 
+**Email Alerts:** integración de Wazuh con Postfix y Gmail SMTP para enviar notificaciones automáticas sobre eventos de seguridad.
 
 
 ## Technical Documentation / Documentación técnica
@@ -72,7 +73,5 @@ Esta sección contiene los procedimientos técnicos utilizados durante la implem
 | 04 | [Email Alerts — Postfix + Gmail SMTP](docs/04-email-alerts.md) | Configuración de notificaciones automáticas de seguridad mediante correo electrónico. |
   
 
-**Email Alerts:** integración de Wazuh con Postfix y Gmail SMTP para enviar notificaciones automáticas sobre eventos de seguridad.
-
-Los procedimientos de instalación, configuración y validación de cada integración se documentarán en archivos técnicos independientes dentro del repositorio.
+Los procedimientos de instalación, configuración y validación de las integraciones implementadas se encuentran documentados en archivos técnicos independientes, disponibles en la sección de documentación técnica de este repositorio.
   
