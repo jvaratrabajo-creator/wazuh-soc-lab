@@ -1,4 +1,3 @@
-
 # Integración de File Integrity Monitoring (FIM) + VirusTotal con Wazuh
 
 ## 1. Descripción
